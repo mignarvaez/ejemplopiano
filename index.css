@@ -1,0 +1,73 @@
+/* Inicialmente se resetea cualquier estilo que tenga la pagina y se le especifica 
+un atributo de box-sizing para para calcular el total del ancho y alto de la pagina
+en este caso con el valor border-box indica que considere cualquier borde y relleno
+en los valores que se especificen para el alto y el ancho*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Se usa un gradiente css para el fondo https://cssgradient.io/ */
+body {
+    background: rgb(62,80,89);
+    /* fallback for old browsers */
+    background: -webkit-radial-gradient(circle, rgba(37,100,162,1) 0%, rgba(119,196,169,1) 100%);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: radial-gradient(circle, rgba(37,100,162,1) 0%, rgba(119,196,169,1) 100%);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Se indican los estilos para el piano, en este caso se establece que se usara flexbox Flexbox 
+es un método de diseño unidimensional para colocar elementos en filas o columnas. Los artículos 
+se flexionan para llenar espacio adicional y se encogen para caber en espacios más pequeños */
+.piano {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Se le asignan un ancho, alto, un borde y un color. El porcentaje de altura y ancho
+es con respecto al padre, se agrega un borde para separar y un color de texto*/
+.white {
+    width: 9%;
+    min-width: 60px;
+    height: 70%;
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+/* Para las teclas negras se realiza una configuración similar.
+pero se especifican margenes negativos a la izquierda y derecha
+en conjunto con un indice en el eje z para que se posisionen encima de las teclas blancas*/
+.black {
+    width: 8%;
+    height: 45%;
+    margin-left: -4%;
+    margin-right: -4%;
+    z-index: 2;
+    background-color: black;
+    color: #fff;
+}
+
+/* Las siguientes clases permiten aplicar efectos visuales cuando una tecla es presionada, oscureciendo
+las blancas y aclarando las negras cuando son presionadas*/
+.white.active {
+    background-color: #ccc;
+}
+
+.black.active {
+    background-color: #333;
+}
+
+/* Se agregan estilos a las teclas, asociadas principalmente a la manera en como se mostrara la tecla del teclado asociada
+se usa un flexbox, se centra y se pone al final de la tecla(flex-end)*/
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
